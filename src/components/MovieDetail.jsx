@@ -27,7 +27,7 @@ function MovieDetail() {
 
     return (
         <div className={"movieDetail"}>
-            <img src={movie.poster_path} alt={movie.title} style={{width: '300px'}} />
+            <img src={movie.poster_path || '/images/poster_not_found.jpg'} alt={movie.title} style={{width: '300px'}} />
             <h2>{movie.title} ({movie.releaseYear})</h2>
             <p>{movie.description}</p>
             <button onClick={handleBack}>Back</button>

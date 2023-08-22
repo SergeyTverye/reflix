@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = 'd35b63d4857b2555a454b6745bd9e99a';
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const tmdbAPI = {
@@ -18,7 +18,7 @@ const tmdbAPI = {
             }));
             return movies;
         } catch (error) {
-            console.error('Error fetching popular movies:', error);
+            console.error('Error fetching popular movies:', error.message);
             return [];
         }
     },

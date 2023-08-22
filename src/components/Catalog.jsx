@@ -21,18 +21,26 @@ function Catalog({setCurrentUser}) {
                     setBudget(db.getUserBudget(userId));
         }
         async function fetchRentedMovies() {
-            const rentedMoviesData = db.getUserRentedMovies(userId);
-            const rented = await Promise.all(rentedMoviesData.map(movie => {
-                if (movie && movie.id) {
-                    return tmdbAPI.getMovieById(movie.id);
-                } else { return null; }
-            })).then(data => data.filter(movie => movie !== null));
-            setRentedMovies(rented);
+            let rented = [];
+            let availableMovies = [];
 
-            const popularMovies = await tmdbAPI.getPopularMovies();
-            const availableMovies = popularMovies.filter(movie =>
-                !rented.some(rentedMovie => rentedMovie.id === movie.id)
-            );
+            try {
+                const rentedMoviesData = db.getUserRentedMovies(userId);
+                rented = await Promise.all(rentedMoviesData.map(movie => {
+                    if (movie && movie.id) {
+                        return tmdbAPI.getMovieById(movie.id);
+                    } else { return null; }
+                })).then(data => data.filter(movie => movie !== null));
+
+                const popularMovies = await tmdbAPI.getPopularMovies();
+                availableMovies = popularMovies.filter(movie =>
+                    !rented.some(rentedMovie => rentedMovie.id === movie.id)
+                );
+            } catch (error) {
+                console.error('Error fetching rented or popular movies:', error);
+            }
+
+            setRentedMovies(rented);
             setMovies(availableMovies);
         }
         fetchRentedMovies();

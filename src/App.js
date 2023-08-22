@@ -1,20 +1,18 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { useState} from "react";
+import './App.css';
 import Landing from './components/Landing';
 import Catalog from './components/Catalog';
 import MovieDetail from './components/MovieDetail';
-import './App.css';
 import Header from "./components/Header";
-import {useEffect, useState} from "react";
 function App() {
     const [currentUser, setCurrentUser] = useState(null)
     function NotFound() {
         return <div className={"notFound"}>404: Page Not Found</div>;
     }
-
     function CatalogWrapper(props) {
         return <Catalog setCurrentUser={setCurrentUser} {...props} />;
     }
-
     return (
         <div className={'content'}>
             <BrowserRouter>
@@ -30,5 +28,4 @@ function App() {
         </div>
     );
 }
-
 export default App;
