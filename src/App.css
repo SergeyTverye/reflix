@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+/* Simple reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.content {
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Buttons styles */
+button {
+    padding: 5px 15px;
+    border: none;
+    background-color: #3f3f3f;
+    color: #e0e0e0;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.2s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+    background-color: #5f5f5f;
+}
+
+/* Headeer component styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.header-links a {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.header-logo {
+    color: #00FFFF;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Movie component styles */
+.movie {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 320px;
+    justify-content: center;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    word-wrap: break-word;
+    flex-basis: 200px;
+    text-align: center;
+}
+
+.movie img {
+    width: auto;
+    height: 200px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.movie h3 {
+    margin: 10px 0;
+}
+
+.movie a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+
+/* Rented and Catalog section */
+.rented-section, .catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+
+/* movieDetail component */
+
+.movieDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.movieDetail button {
+    margin: 10px 0;
+    width: 70px;
+    height: 30px;
+}
+
+/* Landing Page styles */
+
+.landing {
+    text-align: center;
+}
+
+.users{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 10%;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.user:hover {
+    transform: scale(1.1);
+}
+
+/* Search bar */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.search-input{
+    height: 25px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+.budget {
+    margin-right: 20px;
 }

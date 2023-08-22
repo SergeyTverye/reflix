@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Landing from './components/Landing';
+import Catalog from './components/Catalog';
+import MovieDetail from './components/MovieDetail';
 import './App.css';
-
+import Header from "./components/Header";
+import {useEffect, useState} from "react";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [currentUser, setCurrentUser] = useState(null)
+    function NotFound() {
+        return <div className={"notFound"}>404: Page Not Found</div>;
+    }
+
+    function CatalogWrapper(props) {
+        return <Catalog setCurrentUser={setCurrentUser} {...props} />;
+    }
+
+    return (
+        <div className={'content'}>
+            <BrowserRouter>
+                <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
+                <Routes>
+                    <Route path="/" element={<Landing />} />
+                    <Route path="/catalog" element={<Catalog />} />
+                    <Route path="/catalog/:userId" element={<CatalogWrapper />} />
+                    <Route path="/movies/:id" element={<MovieDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;

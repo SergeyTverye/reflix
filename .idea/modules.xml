@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Reflix.iml" filepath="$PROJECT_DIR$/.idea/Reflix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/reflix.iml" filepath="$PROJECT_DIR$/.idea/reflix.iml" />
     </modules>
   </component>
 </project>
