@@ -9,10 +9,10 @@ class LocalStorageDB {
 
         if (!usersInDB) {
             const users = [
-                { userID: 0, name: 'Mana', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 },
-                { userID: 1, name: 'Jasmyne', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 },
-                { userID: 2, name: 'Aura', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 },
-                { userID: 3, name: 'Tina', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 }
+                { userID: 0, name: 'Mana', color: 'blue', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 },
+                { userID: 1, name: 'Jasmyne', color: 'red', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 },
+                { userID: 2, name: 'Aura', color: 'yellow', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 },
+                { userID: 3, name: 'Tina', color: 'green', rentedMovies: [], budget: Math.floor(Math.random() * 500) + 100 }
             ];
             localStorage.setItem('users', JSON.stringify(users));
         }

@@ -6,6 +6,8 @@ import Budget from './Budget';
 import FilmsList from './FilmsList';
 import Search from './Search';
 import Rented from './Rented';
+
+import Modal from './Modal/Modal';
 function Catalog({setCurrentUser}) {
     let {userId } = useParams();
 
@@ -14,6 +16,9 @@ function Catalog({setCurrentUser}) {
     const [searchQuery, setSearchQuery] = useState('');
     const [isUserPresent, setIsUserPresent] = useState(Boolean(userId));
     const [budget, setBudget] = useState(0);
+
+    const [showModal, setShowModal] = useState(false);
+    const [rentedMovieName, setRentedMovieName] = useState('');
 
     useEffect(() => {
         if (userId) {
@@ -54,6 +59,13 @@ function Catalog({setCurrentUser}) {
         setMovies(movies => movies.filter(movie => movie.id !== movieId));
         setRentedMovies(rentedMovies => [...rentedMovies, movieToRent]);
         setBudget(prevBudget => prevBudget - 10);
+
+        setRentedMovieName(movieToRent.title);
+        setShowModal(true);
+    }
+
+    const closeModal = () => {
+        setShowModal(false);
     }
 
     const handleDeleteMovie = (movieId) => {
@@ -80,6 +92,7 @@ function Catalog({setCurrentUser}) {
 
     return (
         <div>
+            {showModal && <Modal message={`Rented ${rentedMovieName} Sucessfully!`} onClose={closeModal} movieName={rentedMovieName} />}
             <div className="search-bar">
             <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearchSubmit={handleSearchSubmit} />
             <Budget budget={budget} />

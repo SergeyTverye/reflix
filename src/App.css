@@ -94,7 +94,6 @@ button:hover {
     flex: 1;
 }
 
-
 /* Rented and Catalog section */
 .rented-section, .catalog {
     display: flex;
@@ -103,7 +102,7 @@ button:hover {
     align-items: center;
 }
 
-/* movieDetail component */
+/* MovieDetail component */
 
 .movieDetail {
     display: flex;
@@ -154,7 +153,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Search bar */
+/* Search bar styles*/
 .search-bar {
     display: flex;
     justify-content: space-between;
